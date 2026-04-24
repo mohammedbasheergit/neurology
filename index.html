@@ -5,31 +5,1127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PharmQuest</title>
   <style>
-    :root{--blue:#2563eb;--green:#059669;--red:#dc2626;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--bg:#f4f7fb;--card:#fff;--radius:8px}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}.center{min-height:100vh;display:grid;place-items:center;padding:20px}.start{width:min(760px,100%);background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 16px 36px #17203314}.start h1{font-size:38px;margin:0 0 8px}.start p{color:var(--muted);line-height:1.6}.signup-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}.field{display:grid;gap:6px;margin-bottom:12px}.field label{font-size:13px;font-weight:800}.input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:var(--radius);padding:0 12px;background:white}.choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:12px;text-align:left}.choice.active{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb22}.primary,.secondary{min-height:42px;border-radius:var(--radius);padding:0 16px;font-weight:800}.primary{background:var(--blue);color:white}.secondary{background:white;border:1px solid var(--line);color:var(--ink)}.primary:disabled{opacity:.45}.hint{font-size:12px;color:var(--muted);line-height:1.5}.wrap{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:#111827;color:white;padding:18px}.brand{font-size:24px;font-weight:800;margin-bottom:20px}.profile{display:flex;gap:12px;align-items:center;background:#ffffff14;padding:12px;border-radius:var(--radius);margin-bottom:12px}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:white;color:#111827;font-weight:800}.nav button{width:100%;text-align:left;background:transparent;color:#d1d5db;padding:12px;border-radius:var(--radius);margin:3px 0}.nav button.active{background:var(--blue);color:white}.main{min-width:0}.top{height:66px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:0 18px;position:sticky;top:0;z-index:5}.pill{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 12px;font-weight:700}.bar{height:8px;background:#e5eaf3;border-radius:999px;overflow:hidden}.fill{height:100%;background:var(--blue);width:0}.xpbox{flex:1;min-width:130px}.small{font-size:12px;color:var(--muted);margin-top:4px}.content{max-width:1120px;margin:0 auto;padding:22px}.view{display:none}.view.active{display:block}.head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:18px}.head h1{margin:0;font-size:28px}.head p{margin:6px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}.card,.unit,.metric{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:16px}.metric b{font-size:28px}.metric span{display:block;color:var(--muted);font-size:13px}.unit{margin-bottom:14px}.unit-title{display:flex;gap:12px;align-items:center;margin-bottom:12px}.badge{width:46px;height:46px;border-radius:var(--radius);display:grid;place-items:center;font-weight:800}.lesson{border:1px solid var(--line);border-radius:var(--radius);padding:14px;background:white;display:grid;gap:8px}.lesson.locked{opacity:.45;cursor:default}.lesson:not(.locked):hover{border-color:var(--blue)}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:12px;border-radius:999px;background:#eef2ff;color:#3730a3;padding:4px 8px}.drug-head{display:flex;gap:10px;align-items:center;margin-bottom:10px}.search{width:100%;border:1px solid var(--line);border-radius:var(--radius);min-height:44px;padding:0 12px;margin-bottom:14px}.modal{position:fixed;inset:0;background:#0f172a88;display:none;align-items:center;justify-content:center;padding:18px;z-index:20}.modal.open{display:flex}.panel{width:min(720px,100%);max-height:90vh;background:white;border-radius:var(--radius);overflow:hidden}.panel-head{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid var(--line)}.panel-body{padding:20px;max-height:62vh;overflow:auto}.panel-foot{border-top:1px solid var(--line);padding:14px;display:flex;justify-content:flex-end}.close{margin-left:auto;background:white;color:var(--muted);font-size:20px}.qstem{font-size:20px;font-weight:800;line-height:1.4}.answers{display:grid;gap:10px;margin-top:16px}.answer{border:1px solid var(--line);background:white;border-radius:var(--radius);padding:12px;text-align:left}.answer.selected{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb22}.answer.good{border-color:var(--green);background:#d1fae5}.answer.bad{border-color:var(--red);background:#fee2e2}.feedback{font-weight:800;padding:0 20px}.feedback.good{padding:12px 20px;background:#d1fae5;color:var(--green)}.feedback.bad{padding:12px 20px;background:#fee2e2;color:var(--red)}.flash{border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-align:center;background:#eef2ff;margin-top:14px}.toast{position:fixed;right:18px;bottom:18px;background:#111827;color:white;padding:12px 14px;border-radius:var(--radius);opacity:0;transform:translateY(8px);transition:.2s}.toast.show{opacity:1;transform:none}@media(max-width:780px){.signup-grid,.wrap{grid-template-columns:1fr}.top{flex-wrap:wrap;height:auto;padding:12px}.content{padding:16px}.head{display:block}.choice-row{grid-template-columns:1fr}}
+    :root {
+      --blue: #2563eb;
+      --green: #059669;
+      --red: #dc2626;
+      --ink: #172033;
+      --muted: #64748b;
+      --line: #dbe3ef;
+      --bg: #f4f7fb;
+      --card: #fff;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--ink); }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; border: 0; }
+
+    .hidden { display: none !important; }
+
+    .center {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .start {
+      width: min(760px, 100%);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 16px 36px #17203314;
+    }
+
+    .start h1 { font-size: 38px; margin: 0 0 8px; }
+    .start p { color: var(--muted); line-height: 1.6; margin: 0; }
+
+    .signup-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .field { display: grid; gap: 6px; margin-bottom: 12px; }
+    .field label { font-size: 13px; font-weight: 800; }
+
+    .input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0 12px;
+      background: white;
+    }
+
+    .choice-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+    .choice {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      text-align: left;
+    }
+
+    .choice.active { border-color: var(--blue); box-shadow: 0 0 0 3px #2563eb22; }
+
+    .primary, .secondary {
+      min-height: 42px;
+      border-radius: var(--radius);
+      padding: 0 16px;
+      font-weight: 800;
+    }
+
+    .primary { background: var(--blue); color: white; }
+    .secondary { background: white; border: 1px solid var(--line); color: var(--ink); }
+    .primary:disabled { opacity: 0.45; cursor: default; }
+
+    .hint { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    .wrap { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+    .side { background: #111827; color: white; padding: 18px; }
+    .brand { font-size: 24px; font-weight: 800; margin-bottom: 20px; }
+
+    .profile {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: #ffffff14;
+      padding: 12px;
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: white;
+      color: #111827;
+      font-weight: 800;
+    }
+
+    .nav button {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      color: #d1d5db;
+      padding: 12px;
+      border-radius: var(--radius);
+      margin: 3px 0;
+    }
+
+    .nav button.active { background: var(--blue); color: white; }
+
+    .main { min-width: 0; }
+
+    .top {
+      height: 66px;
+      background: white;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 18px;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+    }
+
+    .bar { height: 8px; background: #e5eaf3; border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; background: var(--blue); width: 0; }
+
+    .xpbox { flex: 1; min-width: 130px; }
+
+    .small { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    .content { max-width: 1120px; margin: 0 auto; padding: 22px; }
+
+    .view { display: none; }
+    .view.active { display: block; }
+
+    .head { display: flex; justify-content: space-between; gap: 12px; align-items: end; margin-bottom: 18px; }
+    .head h1 { margin: 0; font-size: 28px; }
+    .head p { margin: 6px 0 0; color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+
+    .card, .unit, .metric { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+    .metric b { font-size: 28px; }
+    .metric span { display: block; color: var(--muted); font-size: 13px; }
+
+    .unit { margin-bottom: 14px; }
+    .unit-title { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+
+    .badge {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .lesson {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: white;
+      display: grid;
+      gap: 8px;
+    }
+
+    .lesson.locked { opacity: 0.45; cursor: default; }
+    .lesson:not(.locked):hover { border-color: var(--blue); }
+
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 12px; border-radius: 999px; background: #eef2ff; color: #3730a3; padding: 4px 8px; }
+
+    .drug-head { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .search { width: 100%; border: 1px solid var(--line); border-radius: var(--radius); min-height: 44px; padding: 0 12px; margin-bottom: 14px; }
+
+    .modal { position: fixed; inset: 0; background: #0f172a88; display: none; align-items: center; justify-content: center; padding: 18px; z-index: 20; }
+    .modal.open { display: flex; }
+
+    .panel { width: min(720px, 100%); max-height: 90vh; background: white; border-radius: var(--radius); overflow: hidden; }
+    .panel-head { display: flex; align-items: center; gap: 12px; padding: 14px; border-bottom: 1px solid var(--line); }
+    .panel-body { padding: 20px; max-height: 62vh; overflow: auto; }
+    .panel-foot { border-top: 1px solid var(--line); padding: 14px; display: flex; justify-content: flex-end; }
+
+    .close { margin-left: auto; background: white; color: var(--muted); font-size: 20px; }
+
+    .qstem { font-size: 20px; font-weight: 800; line-height: 1.4; }
+    .answers { display: grid; gap: 10px; margin-top: 16px; }
+
+    .answer { border: 1px solid var(--line); background: white; border-radius: var(--radius); padding: 12px; text-align: left; }
+    .answer.selected { border-color: var(--blue); box-shadow: 0 0 0 3px #2563eb22; }
+    .answer.good { border-color: var(--green); background: #d1fae5; }
+    .answer.bad { border-color: var(--red); background: #fee2e2; }
+
+    .feedback { font-weight: 800; padding: 0 20px; }
+    .feedback.good { padding: 12px 20px; background: #d1fae5; color: var(--green); }
+    .feedback.bad { padding: 12px 20px; background: #fee2e2; color: var(--red); }
+
+    .flash { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; text-align: center; background: #eef2ff; margin-top: 14px; }
+
+    .toast { position: fixed; right: 18px; bottom: 18px; background: #111827; color: white; padding: 12px 14px; border-radius: var(--radius); opacity: 0; transform: translateY(8px); transition: 0.2s; }
+    .toast.show { opacity: 1; transform: none; }
+
+    @media (max-width: 780px) {
+      .signup-grid, .wrap { grid-template-columns: 1fr; }
+      .top { flex-wrap: wrap; height: auto; padding: 12px; }
+      .content { padding: 16px; }
+      .head { display: block; }
+      .choice-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <section id="start" class="center"><div class="start"><h1>PharmQuest</h1><p>Sign up once on this browser, then PharmQuest saves your own XP, streak, badges, and lesson progress locally for a personal study experience.</p><div class="signup-grid"><form id="signupForm"><div class="field"><label for="studentInput">Student name</label><input class="input" id="studentInput" required maxlength="40" placeholder="e.g. Sara Ahmed"></div><div class="field"><label for="yearInput">Study year</label><select class="input" id="yearInput"><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Clinical</option><option>Internship</option></select></div><div class="field"><label>Daily XP goal</label><div class="choice-row" id="goalChoices"><button type="button" class="choice" data-goal="50">Light<br><b>50 XP</b></button><button type="button" class="choice active" data-goal="100">Steady<br><b>100 XP</b></button><button type="button" class="choice" data-goal="150">Ambitious<br><b>150 XP</b></button></div></div><div class="field"><label>Avatar</label><div class="choice-row" id="avatarChoices"><button type="button" class="choice active" data-avatar="Rx">Rx</button><button type="button" class="choice" data-avatar="MD">MD</button><button type="button" class="choice" data-avatar="PK">PK</button></div></div><button class="primary" type="submit">Create My Profile</button> <button class="secondary hidden" type="button" id="continueProfile">Continue Saved Profile</button></form><div class="card"><h3>For students</h3><p class="hint">No password is needed. Your profile is stored only in your own browser. If you open the app on another phone or computer, create a new profile there.</p><p class="hint"><b>Teacher note:</b> this is not a central classroom database yet. It is safe and simple for individual practice.</p></div></div></div></section>
-  <section id="app" class="hidden"><div class="wrap"><aside class="side"><div class="brand">PharmQuest</div><div class="profile"><div class="avatar" id="studentAvatar">Rx</div><div><b id="studentName">Learner</b><div class="small" id="studentMeta">Year 1</div><div class="small" id="levelText">Level 1</div></div></div><button class="secondary" id="switchStudent" style="width:100%;margin-bottom:12px">Switch Student</button><nav class="nav"><button class="active" data-view="learn">Learn</button><button data-view="quiz">Quiz</button><button data-view="progress">Progress</button><button data-view="badges">Badges</button><button data-view="drugref">Drug Ref</button></nav></aside><main class="main"><header class="top"><div class="pill">Streak <span id="streak">0</span></div><div class="pill"><span id="xp">0</span> XP</div><div class="pill">Hearts <span id="hearts">5</span></div><div class="xpbox"><div class="bar"><div class="fill" id="xpFill"></div></div><div class="small" id="xpLabel">0 / 100 XP</div></div></header><div class="content"><section class="view active" id="view-learn"><div class="head"><div><h1 id="greeting">Good day</h1><p id="personalLine">Choose the next lesson and keep building your medication knowledge.</p></div></div><div class="metrics"><div class="metric"><b><span id="todayXp" style="display:inline;color:inherit;font-size:28px">0</span>/<span id="goalXp" style="display:inline;color:inherit;font-size:28px">100</span></b><span>Daily XP</span><div class="bar"><div class="fill" id="goalFill"></div></div></div><div class="metric"><b id="lessonCount">0</b><span>Lessons completed</span></div></div><div id="units"></div></section><section class="view" id="view-quiz"><div class="head"><div><h1>Quiz</h1><p>Pick a topic for a fast mixed quiz.</p></div></div><div class="grid" id="quizGrid"></div></section><section class="view" id="view-progress"><div class="head"><div><h1>Progress</h1><p>Your learning stats are saved in this browser.</p></div></div><div class="metrics"><div class="metric"><b id="pXp">0</b><span>Total XP</span></div><div class="metric"><b id="pLessons">0</b><span>Lessons</span></div><div class="metric"><b id="pAcc">-</b><span>Accuracy</span></div><div class="metric"><b id="pDays">0</b><span>Study days</span></div></div><div class="card" id="mastery"></div></section><section class="view" id="view-badges"><div class="head"><div><h1>Badges</h1><p>Small wins for consistent practice.</p></div></div><div class="grid" id="badges"></div></section><section class="view" id="view-drugref"><div class="head"><div><h1>Drug Reference</h1><p>Search common medication facts.</p></div></div><input class="search" id="drugSearch" placeholder="Search by drug, class, or mechanism"><div class="grid" id="drugGrid"></div></section></div></main></div></section>
-  <div class="modal" id="lessonModal"><div class="panel"><div class="panel-head"><div class="bar" style="flex:1"><div class="fill" id="lessonFill"></div></div><div id="lessonHearts">5</div><button class="close" id="closeLesson">x</button></div><div id="feedback" class="feedback"></div><div class="panel-body" id="lessonBody"></div><div class="panel-foot"><button class="primary" id="checkBtn">Check</button></div></div></div>
-  <div class="modal" id="doneModal"><div class="panel" style="max-width:460px;text-align:center;padding:24px"><h1 id="doneTitle">Lesson Complete</h1><p id="doneText" style="color:var(--muted)"></p><button class="primary" id="continueBtn">Continue</button></div></div><div class="toast" id="toast"></div>
-<script>
-const $=id=>document.getElementById(id), $$=s=>document.querySelectorAll(s), KEY='pharmquest_student_profile_v2';
-const data=[{id:'basics',title:'Medication Basics',desc:'Core pharmacology ideas for safe prescribing.',icon:'Rx',color:'#2563eb',bg:'#dbeafe',lessons:[{id:'drug-names',title:'Drug Names',desc:'Generic, brand, and class names.',xp:25,type:'Basics',q:[{t:'mcq',stem:'Which name is usually preferred in clinical documentation?',o:['Brand name','Generic name','Package color','Manufacturer slogan'],a:1,e:'Generic names reduce ambiguity because many brands may contain the same active ingredient.'},{t:'flash',term:'Generic name',cls:'Nomenclature',def:'The official nonproprietary name for an active drug ingredient.'},{t:'fitb',stem:'The study of how drugs affect the body is called _____.',a:'pharmacodynamics',hint:'Dynamic effects on the body'}]},{id:'five-rights',title:'Five Rights',desc:'A quick safety check before giving medicine.',xp:30,type:'Safety',q:[{t:'mcq',stem:'Which item belongs to the five rights of medication administration?',o:['Right music','Right dose','Right handwriting','Right shelf'],a:1,e:'The classic checks include right patient, medication, dose, route, and time.'},{t:'fitb',stem:'Before administration, confirm the right patient and right _____.',a:'medication',hint:'The drug itself'}]}]},{id:'antibiotics',title:'Antibiotics',desc:'High-yield antimicrobial concepts.',icon:'AB',color:'#059669',bg:'#d1fae5',lessons:[{id:'beta-lactams',title:'Beta-Lactams',desc:'Mechanism, uses, and allergy notes.',xp:35,type:'Antibiotics',q:[{t:'mcq',stem:'Beta-lactam antibiotics mainly inhibit which bacterial process?',o:['Protein synthesis','Cell wall synthesis','DNA gyrase','Folate synthesis'],a:1,e:'Beta-lactams bind penicillin-binding proteins and disrupt peptidoglycan cross-linking.'},{t:'flash',term:'Amoxicillin',cls:'Aminopenicillin',def:'A beta-lactam often used for susceptible respiratory and ear infections.'}]},{id:'macrolides',title:'Macrolides',desc:'Ribosomal inhibition and common cautions.',xp:35,type:'Antibiotics',q:[{t:'mcq',stem:'Azithromycin belongs to which antibiotic class?',o:['Macrolide','Tetracycline','Sulfonamide','Glycopeptide'],a:0,e:'Azithromycin is a macrolide that inhibits bacterial protein synthesis.'},{t:'fitb',stem:'Macrolides inhibit the bacterial _____ ribosomal subunit.',a:'50s',hint:'Large ribosomal subunit'}]}]},{id:'cardio',title:'Cardiovascular',desc:'Common heart and blood pressure medications.',icon:'CV',color:'#dc2626',bg:'#fee2e2',lessons:[{id:'ace-inhibitors',title:'ACE Inhibitors',desc:'Mechanism and monitoring.',xp:40,type:'Cardio',q:[{t:'mcq',stem:'Which adverse effect is classically associated with ACE inhibitors?',o:['Dry cough','Blue vision','Tendon rupture','Tooth staining'],a:0,e:'ACE inhibitors can increase bradykinin, contributing to a dry cough.'},{t:'flash',term:'Lisinopril',cls:'ACE inhibitor',def:'Used for hypertension and heart failure; monitor potassium and renal function.'}]}]}];
-const drugs=[['Amoxicillin','Aminopenicillin','Inhibits bacterial cell wall synthesis by binding penicillin-binding proteins.','Otitis media, sinusitis, streptococcal pharyngitis','Rash, diarrhea, allergy'],['Azithromycin','Macrolide','Binds the 50S ribosomal subunit and inhibits bacterial protein synthesis.','Atypical pneumonia, chlamydia, pertussis','GI upset, QT prolongation'],['Lisinopril','ACE inhibitor','Blocks conversion of angiotensin I to angiotensin II, lowering vascular resistance.','Hypertension, heart failure, diabetic kidney protection','Cough, hyperkalemia, angioedema'],['Metformin','Biguanide','Reduces hepatic glucose production and improves insulin sensitivity.','Type 2 diabetes, prediabetes, PCOS','GI upset, B12 deficiency'],['Albuterol','Short-acting beta-2 agonist','Relaxes bronchial smooth muscle through beta-2 adrenergic stimulation.','Asthma rescue, bronchospasm','Tremor, tachycardia, nervousness']];
-const badges=[['first','First Steps','Earn your first XP',s=>s.xp>0],['three','Lesson Builder','Complete 3 lessons',s=>s.done.length>=3],['perfect','Perfect Round','Score 100% on a lesson or quiz',s=>s.perfect>0],['lookup','Reference Ready','Open 3 drug cards',s=>s.lookups>=3],['streak','Study Streak','Study on 3 different days',s=>s.streak>=3]];
-const defaults={name:'Learner',year:'Year 1',avatar:'Rx',xp:0,today:0,goal:100,hearts:5,done:[],progress:{},correct:0,total:0,days:0,streak:0,last:null,perfect:0,lookups:0,badges:[]};let state,lesson,idx=0,selected=null,correct=0,total=0,goalPick=100,avatarPick='Rx';
-function load(){state=Object.assign({},defaults,JSON.parse(localStorage.getItem(KEY)||'{}'));data.forEach((u,ui)=>u.lessons.forEach((l,li)=>{if(!state.progress[l.id])state.progress[l.id]=ui===0&&li===0?'active':'locked'}));unlock();save()}function save(){localStorage.setItem(KEY,JSON.stringify(state))}function level(){return Math.floor(Math.sqrt(state.xp/100))+1}function nextXp(){return level()*level()*100}function today(){return new Date().toISOString().slice(0,10)}function studyDay(){let t=today();if(state.last===t)return;let y=new Date(Date.now()-864e5).toISOString().slice(0,10);state.streak=state.last===y?state.streak+1:1;state.last=t;state.days++;state.today=0}
-function signup(e){e.preventDefault();state=Object.assign({},defaults,{name:$('studentInput').value.trim()||'Learner',year:$('yearInput').value,goal:goalPick,avatar:avatarPick});data.forEach((u,ui)=>u.lessons.forEach((l,li)=>state.progress[l.id]=ui===0&&li===0?'active':'locked'));save();launch()}function launch(){load();$('start').classList.add('hidden');$('app').classList.remove('hidden');renderLearn();update()}function unlock(){data.forEach((u,ui)=>u.lessons.forEach((l,li)=>{if(state.progress[l.id]==='done'){if(u.lessons[li+1]&&state.progress[u.lessons[li+1].id]==='locked')state.progress[u.lessons[li+1].id]='active';if(li===u.lessons.length-1&&data[ui+1]&&state.progress[data[ui+1].lessons[0].id]==='locked')state.progress[data[ui+1].lessons[0].id]='active'}}))}
-function update(){let nx=nextXp(), pct=Math.min(100,state.xp/nx*100);$('studentName').textContent=state.name;$('studentMeta').textContent=state.year+' · goal '+state.goal+' XP/day';$('studentAvatar').textContent=state.avatar;$('xp').textContent=state.xp;$('xpFill').style.width=pct+'%';$('xpLabel').textContent=state.xp+' / '+nx+' XP';$('levelText').textContent='Level '+level();$('streak').textContent=state.streak;$('hearts').textContent=state.hearts;$('todayXp').textContent=state.today;$('goalXp').textContent=state.goal;$('goalFill').style.width=Math.min(100,state.today/state.goal*100)+'%';$('lessonCount').textContent=state.done.length;checkBadges();save()}function toast(t){$('toast').textContent=t;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1700)}function award(x){studyDay();state.xp+=x;state.today+=x;toast('+'+x+' XP');update()}
-function renderLearn(){let h=new Date().getHours(),g=h<12?'Good morning':h<17?'Good afternoon':'Good evening';$('greeting').textContent=g+', '+state.name;$('personalLine').textContent=state.year+' · daily goal '+state.goal+' XP. Pick the next lesson and keep moving.';$('units').innerHTML=data.map(u=>`<div class="unit"><div class="unit-title"><div class="badge" style="background:${u.bg};color:${u.color}">${u.icon}</div><div><b>${u.title}</b><div class="small">${u.desc}</div></div></div><div class="grid">${u.lessons.map(l=>{let st=state.progress[l.id]||'locked';return `<button class="lesson ${st==='locked'?'locked':''}" data-lesson="${l.id}" ${st==='locked'?'disabled':''}><b>${l.title}</b><span class="small">${l.desc}</span><div class="tags"><span class="tag">${st==='done'?'Done':l.type}</span><span class="tag">+${l.xp} XP</span></div></button>`}).join('')}</div></div>`).join('');$$('[data-lesson]').forEach(b=>b.onclick=()=>startLesson(findLesson(b.dataset.lesson)))}
-function findLesson(id){for(let u of data)for(let l of u.lessons)if(l.id===id)return l}function renderQuiz(){$('quizGrid').innerHTML=data.map(u=>`<button class="card" data-quiz="${u.id}"><div class="badge" style="background:${u.bg};color:${u.color}">${u.icon}</div><h3>${u.title}</h3><p class="small">${u.lessons.flatMap(l=>l.q).filter(q=>q.t==='mcq').length} questions</p></button>`).join('');$$('[data-quiz]').forEach(b=>b.onclick=()=>{let u=data.find(x=>x.id===b.dataset.quiz),qs=u.lessons.flatMap(l=>l.q).filter(q=>q.t==='mcq');startLesson({id:'quiz-'+u.id,title:u.title+' Quiz',xp:qs.length*5,q:qs})})}
-function startLesson(l){lesson=l;idx=0;correct=0;total=0;$('lessonModal').classList.add('open');renderQuestion()}function renderQuestion(){selected=null;let q=lesson.q[idx];$('feedback').className='feedback';$('feedback').textContent='';$('checkBtn').textContent=q.t==='flash'?'Continue':'Check';$('checkBtn').disabled=q.t==='mcq';$('lessonFill').style.width=idx/lesson.q.length*100+'%';$('lessonHearts').textContent='Hearts '+state.hearts;if(q.t==='mcq'){$('lessonBody').innerHTML=`<div class="qstem">${q.stem}</div><div class="answers">${q.o.map((o,i)=>`<button class="answer" data-a="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div>`;$$('[data-a]').forEach(b=>b.onclick=()=>{$$('.answer').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');selected=+b.dataset.a;$('checkBtn').disabled=false})}else if(q.t==='fitb'){$('lessonBody').innerHTML=`<div class="qstem">${q.stem.replace('_____','<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>')}</div><p class="small">Hint: ${q.hint||''}</p><input class="search" id="fitb" placeholder="Type answer">`;$('fitb').oninput=()=>$('checkBtn').disabled=$('fitb').value.trim().length<1;$('checkBtn').disabled=true}else{$('lessonBody').innerHTML=`<div class="qstem">Study this card</div><div class="flash"><h2>${q.term}</h2><p>${q.cls}</p><p>${q.def}</p></div>`}}
-function doCheck(){let q=lesson.q[idx];if($('checkBtn').textContent==='Continue'){idx++;return idx>=lesson.q.length?finish():renderQuestion()}let ok=false;total++;state.total++;if(q.t==='mcq'){ok=selected===q.a;$$('[data-a]').forEach((b,i)=>{if(i===q.a)b.classList.add('good');else if(i===selected)b.classList.add('bad')})}else if(q.t==='fitb'){let v=$('fitb').value.trim().toLowerCase();ok=v===q.a||q.a.includes(v)}if(ok){correct++;state.correct++;$('feedback').className='feedback good';$('feedback').textContent='Correct!'}else{state.hearts=Math.max(0,state.hearts-1);$('feedback').className='feedback bad';$('feedback').innerHTML='Not quite. '+(q.e||'Review this concept and try again.')}if(q.e&&ok)$('feedback').innerHTML+=' '+q.e;$('checkBtn').textContent='Continue';$('checkBtn').disabled=false;update()}
-function finish(){let acc=total?Math.round(correct/total*100):100;if(acc===100)state.perfect++;if(!lesson.id.startsWith('quiz-')&&!state.done.includes(lesson.id)){state.done.push(lesson.id);state.progress[lesson.id]='done';unlock()}award(lesson.xp);$('lessonModal').classList.remove('open');$('doneTitle').textContent=acc===100?'Perfect, '+state.name+'!':'Lesson Complete';$('doneText').textContent='You earned '+lesson.xp+' XP with '+acc+'% accuracy.';$('doneModal').classList.add('open');renderLearn()}
-function checkBadges(){badges.forEach(b=>{if(!state.badges.includes(b[0])&&b[3](state)){state.badges.push(b[0]);toast('Badge: '+b[1])}})}function renderBadges(){$('badges').innerHTML=badges.map(b=>`<div class="card"><h3>${b[1]}</h3><p class="small">${b[2]}</p><b>${state.badges.includes(b[0])?'Earned':'Locked'}</b></div>`).join('')}function renderProgress(){$('pXp').textContent=state.xp;$('pLessons').textContent=state.done.length;$('pDays').textContent=state.days;$('pAcc').textContent=state.total?Math.round(state.correct/state.total*100)+'%':'-';$('mastery').innerHTML='<h3>'+state.name+'\'s mastery</h3>'+data.map(u=>{let p=Math.round(u.lessons.filter(l=>state.progress[l.id]==='done').length/u.lessons.length*100);return `<p><b>${u.title}</b> ${p}%</p><div class="bar"><div class="fill" style="width:${p}%;background:${u.color}"></div></div>`}).join('')}function renderDrugs(list=drugs){$('drugGrid').innerHTML=list.map((d,i)=>`<button class="card" data-drug="${i}"><div class="drug-head"><div class="badge" style="background:#eef2ff;color:#3730a3">${d[0].slice(0,3).toUpperCase()}</div><div><b>${d[0]}</b><div class="small">${d[1]}</div></div></div><p>${d[2]}</p><p class="small"><b>Uses:</b> ${d[3]}</p><p class="small"><b>Cautions:</b> ${d[4]}</p></button>`).join('');$$('[data-drug]').forEach(b=>b.onclick=()=>{state.lookups++;update();toast('Drug card opened')})}
-function switchView(v){$$('.view').forEach(x=>x.classList.remove('active'));$('view-'+v).classList.add('active');$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));if(v==='learn')renderLearn();if(v==='quiz')renderQuiz();if(v==='progress')renderProgress();if(v==='badges')renderBadges();if(v==='drugref')renderDrugs()}function choose(group,attr,cb){$$(group+' .choice').forEach(b=>b.onclick=()=>{$$(group+' .choice').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b.dataset[attr])})}
-choose('#goalChoices','goal',v=>goalPick=+v);choose('#avatarChoices','avatar',v=>avatarPick=v);$('signupForm').onsubmit=signup;$('continueProfile').onclick=launch;if(localStorage.getItem(KEY)){$('continueProfile').classList.remove('hidden');try{let s=JSON.parse(localStorage.getItem(KEY));$('studentInput').value=s.name||'';$('yearInput').value=s.year||'Year 1'}catch(e){}}$$('.nav button').forEach(b=>b.onclick=()=>switchView(b.dataset.view));$('checkBtn').onclick=doCheck;$('closeLesson').onclick=()=>$('lessonModal').classList.remove('open');$('continueBtn').onclick=()=>{$('doneModal').classList.remove('open');switchView('learn')};$('drugSearch').oninput=e=>{let q=e.target.value.toLowerCase();renderDrugs(drugs.filter(d=>d.join(' ').toLowerCase().includes(q)))};$('switchStudent').onclick=()=>{if(confirm('Switch student? This clears the saved profile and progress on this browser.')){localStorage.removeItem(KEY);location.reload()}};
-</script>
+  <section id="start" class="center">
+    <div class="start">
+      <h1>PharmQuest</h1>
+      <p>Sign up once on this browser, then PharmQuest saves your XP, streak, badges, and lesson progress locally for a personal practice experience.</p>
+      <div class="signup-grid">
+        <form id="signupForm">
+          <div class="field">
+            <label for="studentInput">Student name</label>
+            <input class="input" id="studentInput" required maxlength="40" placeholder="e.g. Sara Ahmed" />
+          </div>
+          <div class="field">
+            <label for="yearInput">Study year</label>
+            <select class="input" id="yearInput">
+              <option>Year 1</option>
+              <option>Year 2</option>
+              <option>Year 3</option>
+              <option>Clinical</option>
+              <option>Internship</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Daily XP goal</label>
+            <div class="choice-row" id="goalChoices">
+              <button type="button" class="choice" data-goal="50">Light<br><b>50 XP</b></button>
+              <button type="button" class="choice active" data-goal="100">Steady<br><b>100 XP</b></button>
+              <button type="button" class="choice" data-goal="150">Ambitious<br><b>150 XP</b></button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Avatar</label>
+            <div class="choice-row" id="avatarChoices">
+              <button type="button" class="choice active" data-avatar="Rx">Rx</button>
+              <button type="button" class="choice" data-avatar="MD">MD</button>
+              <button type="button" class="choice" data-avatar="PK">PK</button>
+            </div>
+          </div>
+          <button class="primary" type="submit">Create My Profile</button>
+          <button class="secondary hidden" type="button" id="continueProfile">Continue Saved Profile</button>
+        </form>
+        <div class="card">
+          <h3>For students</h3>
+          <p class="hint">No password is needed. Your profile is stored only in your own browser. If you open the app on another phone or computer, create a new profile there.</p>
+          <p class="hint"><b>Teacher note:</b> this is not a central classroom database yet. It is safe and simple for individual practice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="app" class="hidden">
+    <div class="wrap">
+      <aside class="side">
+        <div class="brand">PharmQuest</div>
+        <div class="profile">
+          <div class="avatar" id="studentAvatar">Rx</div>
+          <div>
+            <b id="studentName">Learner</b>
+            <div class="small" id="studentMeta">Year 1</div>
+            <div class="small" id="levelText">Level 1</div>
+          </div>
+        </div>
+        <button class="secondary" id="switchStudent" style="width:100%;margin-bottom:12px">Switch Student</button>
+        <nav class="nav">
+          <button class="active" data-view="learn">Learn</button>
+          <button data-view="quiz">Quiz</button>
+          <button data-view="progress">Progress</button>
+          <button data-view="badges">Badges</button>
+          <button data-view="drugref">Drug Ref</button>
+        </nav>
+      </aside>
+      <main class="main">
+        <header class="top">
+          <div class="pill">Streak <span id="streak">0</span></div>
+          <div class="pill"><span id="xp">0</span> XP</div>
+          <div class="pill">Hearts <span id="hearts">5</span></div>
+          <div class="xpbox">
+            <div class="bar"><div class="fill" id="xpFill"></div></div>
+            <div class="small" id="xpLabel">0 / 100 XP</div>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="view active" id="view-learn">
+            <div class="head">
+              <div>
+                <h1 id="greeting">Good day</h1>
+                <p id="personalLine">Choose the next lesson and keep building your medication knowledge.</p>
+              </div>
+            </div>
+            <div class="metrics">
+              <div class="metric">
+                <b><span id="todayXp" style="display:inline;color:inherit;font-size:28px">0</span>/<span id="goalXp" style="display:inline;color:inherit;font-size:28px">100</span></b>
+                <span>Daily XP</span>
+                <div class="bar"><div class="fill" id="goalFill"></div></div>
+              </div>
+              <div class="metric">
+                <b id="lessonCount">0</b>
+                <span>Lessons completed</span>
+              </div>
+            </div>
+            <div id="units"></div>
+          </section>
+
+          <section class="view" id="view-quiz">
+            <div class="head"><div><h1>Quiz</h1><p>Pick a topic for a fast mixed quiz.</p></div></div>
+            <div class="grid" id="quizGrid"></div>
+          </section>
+
+          <section class="view" id="view-progress">
+            <div class="head"><div><h1>Progress</h1><p>Your learning stats are saved in this browser.</p></div></div>
+            <div class="metrics">
+              <div class="metric"><b id="pXp">0</b><span>Total XP</span></div>
+              <div class="metric"><b id="pLessons">0</b><span>Lessons</span></div>
+              <div class="metric"><b id="pAcc">-</b><span>Accuracy</span></div>
+              <div class="metric"><b id="pDays">0</b><span>Study days</span></div>
+            </div>
+            <div class="card" id="mastery"></div>
+          </section>
+
+          <section class="view" id="view-badges">
+            <div class="head"><div><h1>Badges</h1><p>Small wins for consistent practice.</p></div></div>
+            <div class="grid" id="badges"></div>
+          </section>
+
+          <section class="view" id="view-drugref">
+            <div class="head"><div><h1>Drug Reference</h1><p>Search common medication facts.</p></div></div>
+            <input class="search" id="drugSearch" placeholder="Search by drug, class, or mechanism" />
+            <div class="grid" id="drugGrid"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <div class="modal" id="lessonModal">
+    <div class="panel">
+      <div class="panel-head">
+        <div class="bar" style="flex:1"><div class="fill" id="lessonFill"></div></div>
+        <div id="lessonHearts">5</div>
+        <button class="close" id="closeLesson">x</button>
+      </div>
+      <div id="feedback" class="feedback"></div>
+      <div class="panel-body" id="lessonBody"></div>
+      <div class="panel-foot"><button class="primary" id="checkBtn">Check</button></div>
+    </div>
+  </div>
+
+  <div class="modal" id="doneModal">
+    <div class="panel" style="max-width:460px;text-align:center;padding:24px">
+      <h1 id="doneTitle">Lesson Complete</h1>
+      <p id="doneText" style="color:var(--muted)"></p>
+      <button class="primary" id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    const KEY = "pharmquest_student_profile_v2";
+
+    const data = [
+      {
+        id: "basics",
+        title: "Medication Basics",
+        desc: "Core pharmacology ideas for safe prescribing.",
+        icon: "Rx",
+        color: "#2563eb",
+        bg: "#dbeafe",
+        lessons: [
+          {
+            id: "drug-names",
+            title: "Drug Names",
+            desc: "Generic, brand, and class names.",
+            xp: 25,
+            type: "Basics",
+            q: [
+              {
+                t: "mcq",
+                stem: "Which name is usually preferred in clinical documentation?",
+                o: ["Brand name", "Generic name", "Package color", "Manufacturer slogan"],
+                a: 1,
+                e: "Generic names reduce ambiguity because many brands may contain the same active ingredient.",
+              },
+              { t: "flash", term: "Generic name", cls: "Nomenclature", def: "The official nonproprietary name for an active drug ingredient." },
+              { t: "fitb", stem: "The study of how drugs affect the body is called _____.", a: "pharmacodynamics", hint: "Dynamic effects on the body" },
+            ],
+          },
+          {
+            id: "five-rights",
+            title: "Five Rights",
+            desc: "A quick safety check before giving medicine.",
+            xp: 30,
+            type: "Safety",
+            q: [
+              {
+                t: "mcq",
+                stem: "Which item belongs to the five rights of medication administration?",
+                o: ["Right music", "Right dose", "Right handwriting", "Right shelf"],
+                a: 1,
+                e: "The classic checks include right patient, medication, dose, route, and time.",
+              },
+              { t: "fitb", stem: "Before administration, confirm the right patient and right _____.", a: "medication", hint: "The drug itself" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "antibiotics",
+        title: "Antibiotics",
+        desc: "High-yield antimicrobial concepts.",
+        icon: "AB",
+        color: "#059669",
+        bg: "#d1fae5",
+        lessons: [
+          {
+            id: "beta-lactams",
+            title: "Beta-Lactams",
+            desc: "Mechanism, uses, and allergy notes.",
+            xp: 35,
+            type: "Antibiotics",
+            q: [
+              {
+                t: "mcq",
+                stem: "Beta-lactam antibiotics mainly inhibit which bacterial process?",
+                o: ["Protein synthesis", "Cell wall synthesis", "DNA gyrase", "Folate synthesis"],
+                a: 1,
+                e: "Beta-lactams bind penicillin-binding proteins and disrupt peptidoglycan cross-linking.",
+              },
+              { t: "flash", term: "Amoxicillin", cls: "Aminopenicillin", def: "A beta-lactam often used for susceptible respiratory and ear infections." },
+            ],
+          },
+          {
+            id: "macrolides",
+            title: "Macrolides",
+            desc: "Ribosomal inhibition and common cautions.",
+            xp: 35,
+            type: "Antibiotics",
+            q: [
+              { t: "mcq", stem: "Azithromycin belongs to which antibiotic class?", o: ["Macrolide", "Tetracycline", "Sulfonamide", "Glycopeptide"], a: 0, e: "Azithromycin is a macrolide that inhibits bacterial protein synthesis." },
+              { t: "fitb", stem: "Macrolides inhibit the bacterial _____ ribosomal subunit.", a: "50s", hint: "Large ribosomal subunit" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "cardio",
+        title: "Cardiovascular",
+        desc: "Common heart and blood pressure medications.",
+        icon: "CV",
+        color: "#dc2626",
+        bg: "#fee2e2",
+        lessons: [
+          {
+            id: "ace-inhibitors",
+            title: "ACE Inhibitors",
+            desc: "Mechanism and monitoring.",
+            xp: 40,
+            type: "Cardio",
+            q: [
+              { t: "mcq", stem: "Which adverse effect is classically associated with ACE inhibitors?", o: ["Dry cough", "Blue vision", "Tendon rupture", "Tooth staining"], a: 0, e: "ACE inhibitors can increase bradykinin, contributing to a dry cough." },
+              { t: "flash", term: "Lisinopril", cls: "ACE inhibitor", def: "Used for hypertension and heart failure; monitor potassium and renal function." },
+            ],
+          },
+        ],
+      },
+      {
+        id: "clinical",
+        title: "Clinical Prescribing Mode",
+        desc: "Case-based missions for clinical decision practice (educational).",
+        icon: "CP",
+        color: "#7c3aed",
+        bg: "#ede9fe",
+        lessons: [
+          {
+            id: "htn-diabetes",
+            title: "Treat hypertension in diabetic patient",
+            desc: "First-line choices and key cautions.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "In diabetes with hypertension (especially with albuminuria), which drug class is commonly first-line?",
+                o: ["Alpha blocker", "ACE inhibitor / ARB", "Loop diuretic", "Short-acting nitrate"],
+                a: 1,
+                e: "ACE inhibitors or ARBs are commonly favored for BP control and kidney protection, depending on clinical context and contraindications.",
+              },
+              {
+                t: "flash",
+                term: "ACE inhibitor / ARB",
+                cls: "HTN + diabetes",
+                def: "Often used early in diabetes with hypertension, particularly with albuminuria. Monitor potassium and renal function and consider contraindications (e.g., pregnancy, angioedema history for ACEi).",
+              },
+            ],
+          },
+          {
+            id: "status-asthmaticus",
+            title: "Status asthmaticus first-line therapy",
+            desc: "Immediate steps and escalation basics.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "What is a standard first-line approach in severe acute asthma exacerbation?",
+                o: ["Inhaled SABA + oxygen + systemic corticosteroid", "Oral antibiotics alone", "IV beta blocker", "High-dose opioid"],
+                a: 0,
+                e: "Initial management typically includes inhaled short-acting beta-agonist, oxygen as needed, and systemic corticosteroids, with escalation per severity and local protocols.",
+              },
+              { t: "fitb", stem: "First-line rescue bronchodilator is inhaled _____.", a: "albuterol", hint: "Short-acting beta-2 agonist" },
+            ],
+          },
+          {
+            id: "cap-antibiotics",
+            title: "Community acquired pneumonia antibiotics",
+            desc: "Empiric selection by setting and risk.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "Outpatient CAP (no MRSA/Pseudomonas risk): which is an appropriate empiric option in many guidelines?",
+                o: ["Amoxicillin", "Meropenem", "Tobramycin", "Vancomycin"],
+                a: 0,
+                e: "Empiric CAP therapy depends on severity, comorbidities, and local resistance. For low-risk outpatient CAP, amoxicillin or doxycycline are common options in many guidelines.",
+              },
+              { t: "flash", term: "CAP empiric therapy", cls: "Antibiotics", def: "Match site of care, comorbidities, and local resistance. Reassess when diagnostics return; avoid unnecessary broad-spectrum coverage." },
+            ],
+          },
+          {
+            id: "hf-optimization",
+            title: "Heart failure optimization",
+            desc: "Foundational therapies for HFrEF.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "Which set best matches the commonly cited foundational therapies for HFrEF?",
+                o: [
+                  "ARNI/ACEi/ARB + evidence beta blocker + MRA + SGLT2 inhibitor",
+                  "CCB + alpha blocker + nitrate + antibiotic",
+                  "Thiazide only + statin only + aspirin only + PPI",
+                  "Digoxin alone + loop diuretic alone",
+                ],
+                a: 0,
+                e: "Guideline-directed medical therapy for HFrEF often includes ARNI/ACEi/ARB, evidence-based beta blocker, mineralocorticoid receptor antagonist, and an SGLT2 inhibitor, tailored to patient tolerance.",
+              },
+              { t: "flash", term: "SGLT2 inhibitors", cls: "HFrEF", def: "Dapagliflozin and empagliflozin are used in HFrEF (with or without diabetes) in many guidelines, with monitoring for adverse effects and contraindications." },
+            ],
+          },
+          {
+            id: "epilepsy-first-drug",
+            title: "Epilepsy first drug choice",
+            desc: "Match drug to seizure type and patient factors.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "For many adults with focal-onset seizures, which is a common first-line option?",
+                o: ["Levetiracetam", "Amoxicillin", "Nitroglycerin", "Metformin"],
+                a: 0,
+                e: "First-line antiseizure medications depend on seizure type and patient factors. Levetiracetam and lamotrigine are common options for focal seizures in many settings.",
+              },
+              { t: "flash", term: "Valproate caution", cls: "Epilepsy", def: "Valproate is effective for some generalized seizures but is generally avoided in pregnancy due to teratogenic risk; consider alternatives and counseling." },
+            ],
+          },
+          {
+            id: "dka-insulin",
+            title: "DKA insulin strategy",
+            desc: "Fluids, potassium, then insulin.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "In DKA, when is IV regular insulin typically started?",
+                o: ["After initial fluids and confirming potassium is not severely low", "Before any fluids", "Only after the anion gap closes", "Only after antibiotics"],
+                a: 0,
+                e: "Standard DKA protocols prioritize fluids and electrolyte assessment. Insulin is started after initial resuscitation and once potassium is safe to avoid dangerous hypokalemia.",
+              },
+              { t: "fitb", stem: "If potassium is <3.3 mEq/L in DKA, give _____ before insulin.", a: "potassium", hint: "Electrolyte replacement" },
+            ],
+          },
+          {
+            id: "tb-regimen",
+            title: "TB regimen construction",
+            desc: "Initial regimen and key concepts.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "What is the standard initial regimen for drug-susceptible active TB (intensive phase)?",
+                o: ["Rifampin + isoniazid + pyrazinamide + ethambutol", "Amoxicillin + clavulanate", "Vancomycin + piperacillin-tazobactam", "Acyclovir + prednisone"],
+                a: 0,
+                e: "For drug-susceptible pulmonary TB, the classic initial regimen is RIPE, then continuation therapy per guidelines and susceptibility results.",
+              },
+              { t: "flash", term: "RIPE", cls: "Tuberculosis", def: "Rifampin, Isoniazid, Pyrazinamide, Ethambutol. Duration and monitoring vary; check local TB program guidance." },
+            ],
+          },
+          {
+            id: "stemi-acute-meds",
+            title: "STEMI acute medications",
+            desc: "Immediate meds and contraindications.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "Which medication is commonly given immediately in suspected STEMI unless contraindicated?",
+                o: ["Chewable aspirin", "Oral warfarin loading", "High-dose opioid", "IV amiodarone for all patients"],
+                a: 0,
+                e: "Acute STEMI management typically includes antiplatelet therapy (aspirin), additional antithrombotics, and reperfusion strategy, with contraindications checked.",
+              },
+              { t: "fitb", stem: "First antiplatelet in suspected STEMI: chewable _____.", a: "aspirin", hint: "ASA" },
+            ],
+          },
+          {
+            id: "af-anticoag",
+            title: "AF anticoagulation decision",
+            desc: "Risk scoring and agent selection.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "Which scoring system is commonly used to estimate stroke risk in atrial fibrillation?",
+                o: ["CHA2DS2-VASc", "Wells score", "APGAR", "Glasgow Coma Scale"],
+                a: 0,
+                e: "CHA2DS2-VASc is commonly used for stroke risk assessment in AF; anticoagulation decisions also weigh bleeding risk and patient factors.",
+              },
+              { t: "flash", term: "DOAC vs warfarin", cls: "Atrial fibrillation", def: "DOACs are common for non-valvular AF; warfarin is used in specific situations (e.g., mechanical valves, certain valvular disease, severe renal impairment), per guidelines." },
+            ],
+          },
+          {
+            id: "septic-shock-pressor",
+            title: "Septic shock vasopressor choice",
+            desc: "First-line pressor and add-ons.",
+            xp: 60,
+            type: "Clinical",
+            q: [
+              {
+                t: "mcq",
+                stem: "First-line vasopressor for septic shock in many guidelines is:",
+                o: ["Norepinephrine", "Dopamine", "Nitroprusside", "Furosemide"],
+                a: 0,
+                e: "Norepinephrine is commonly first-line for septic shock; additional agents may be added based on response and clinical context.",
+              },
+              { t: "fitb", stem: "First-line vasopressor in septic shock: _____.", a: "norepinephrine", hint: "NE" },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const drugs = [
+      ["Amoxicillin", "Aminopenicillin", "Inhibits bacterial cell wall synthesis by binding penicillin-binding proteins.", "Otitis media, sinusitis, streptococcal pharyngitis", "Rash, diarrhea, allergy"],
+      ["Azithromycin", "Macrolide", "Binds the 50S ribosomal subunit and inhibits bacterial protein synthesis.", "Atypical pneumonia, chlamydia, pertussis", "GI upset, QT prolongation"],
+      ["Lisinopril", "ACE inhibitor", "Blocks conversion of angiotensin I to angiotensin II, lowering vascular resistance.", "Hypertension, heart failure, diabetic kidney protection", "Cough, hyperkalemia, angioedema"],
+      ["Metformin", "Biguanide", "Reduces hepatic glucose production and improves insulin sensitivity.", "Type 2 diabetes, prediabetes, PCOS", "GI upset, B12 deficiency"],
+      ["Albuterol", "Short-acting beta-2 agonist", "Relaxes bronchial smooth muscle through beta-2 adrenergic stimulation.", "Asthma rescue, bronchospasm", "Tremor, tachycardia, nervousness"],
+    ];
+
+    const badges = [
+      ["first", "First Steps", "Earn your first XP", (s) => s.xp > 0],
+      ["three", "Lesson Builder", "Complete 3 lessons", (s) => s.done.length >= 3],
+      ["perfect", "Perfect Round", "Score 100% on a lesson or quiz", (s) => s.perfect > 0],
+      ["lookup", "Reference Ready", "Open 3 drug cards", (s) => s.lookups >= 3],
+      ["streak", "Study Streak", "Study on 3 different days", (s) => s.streak >= 3],
+    ];
+
+    const defaults = {
+      name: "Learner",
+      year: "Year 1",
+      avatar: "Rx",
+      xp: 0,
+      today: 0,
+      goal: 100,
+      hearts: 5,
+      done: [],
+      progress: {},
+      correct: 0,
+      total: 0,
+      days: 0,
+      streak: 0,
+      last: null,
+      perfect: 0,
+      lookups: 0,
+      badges: [],
+    };
+
+    let state;
+    let lesson;
+    let idx = 0;
+    let selected = null;
+    let correct = 0;
+    let total = 0;
+    let goalPick = 100;
+    let avatarPick = "Rx";
+
+    function level() { return Math.floor(Math.sqrt(state.xp / 100)) + 1; }
+    function nextXp() { return level() * level() * 100; }
+
+    function todayStr() { return new Date().toISOString().slice(0, 10); }
+
+    function studyDay() {
+      const t = todayStr();
+      if (state.last === t) return;
+      const y = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+      state.streak = state.last === y ? state.streak + 1 : 1;
+      state.last = t;
+      state.days++;
+      state.today = 0;
+    }
+
+    function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
+
+    function load() {
+      state = Object.assign({}, defaults, JSON.parse(localStorage.getItem(KEY) || "{}"));
+      data.forEach((u, ui) => u.lessons.forEach((l, li) => {
+        if (!state.progress[l.id]) state.progress[l.id] = ui === 0 && li === 0 ? "active" : "locked";
+      }));
+      unlock();
+      save();
+    }
+
+    function unlock() {
+      data.forEach((u, ui) => u.lessons.forEach((l, li) => {
+        if (state.progress[l.id] === "done") {
+          if (u.lessons[li + 1] && state.progress[u.lessons[li + 1].id] === "locked") state.progress[u.lessons[li + 1].id] = "active";
+          if (li === u.lessons.length - 1 && data[ui + 1] && state.progress[data[ui + 1].lessons[0].id] === "locked") state.progress[data[ui + 1].lessons[0].id] = "active";
+        }
+      }));
+    }
+
+    function toast(text) {
+      $("toast").textContent = text;
+      $("toast").classList.add("show");
+      setTimeout(() => $("toast").classList.remove("show"), 1700);
+    }
+
+    function checkBadges() {
+      badges.forEach((b) => {
+        const id = b[0];
+        const name = b[1];
+        const cond = b[3];
+        if (!state.badges.includes(id) && cond(state)) {
+          state.badges.push(id);
+          toast("Badge: " + name);
+        }
+      });
+    }
+
+    function award(x) {
+      studyDay();
+      state.xp += x;
+      state.today += x;
+      toast("+" + x + " XP");
+      update();
+    }
+
+    function update() {
+      const nx = nextXp();
+      const pct = Math.min(100, (state.xp / nx) * 100);
+
+      $("studentName").textContent = state.name;
+      $("studentMeta").textContent = state.year + " · goal " + state.goal + " XP/day";
+      $("studentAvatar").textContent = state.avatar;
+
+      $("xp").textContent = state.xp;
+      $("xpFill").style.width = pct + "%";
+      $("xpLabel").textContent = state.xp + " / " + nx + " XP";
+      $("levelText").textContent = "Level " + level();
+
+      $("streak").textContent = state.streak;
+      $("hearts").textContent = state.hearts;
+
+      $("todayXp").textContent = state.today;
+      $("goalXp").textContent = state.goal;
+      $("goalFill").style.width = Math.min(100, (state.today / state.goal) * 100) + "%";
+      $("lessonCount").textContent = state.done.length;
+
+      checkBadges();
+      save();
+    }
+
+    function renderLearn() {
+      const h = new Date().getHours();
+      const greet = h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
+      $("greeting").textContent = greet + ", " + state.name;
+      $("personalLine").textContent = state.year + " · daily goal " + state.goal + " XP. Pick the next lesson and keep moving.";
+
+      $("units").innerHTML = data.map((u) => {
+        const lessonsHtml = u.lessons.map((l) => {
+          const st = state.progress[l.id] || "locked";
+          const locked = st === "locked";
+          const tag1 = st === "done" ? "Done" : l.type;
+          return (
+            `<button class="lesson ${locked ? "locked" : ""}" data-lesson="${l.id}" ${locked ? "disabled" : ""}>` +
+            `<b>${l.title}</b>` +
+            `<span class="small">${l.desc}</span>` +
+            `<div class="tags"><span class="tag">${tag1}</span><span class="tag">+${l.xp} XP</span></div>` +
+            `</button>`
+          );
+        }).join("");
+
+        return (
+          `<div class="unit">` +
+          `<div class="unit-title">` +
+          `<div class="badge" style="background:${u.bg};color:${u.color}">${u.icon}</div>` +
+          `<div><b>${u.title}</b><div class="small">${u.desc}</div></div>` +
+          `</div>` +
+          `<div class="grid">${lessonsHtml}</div>` +
+          `</div>`
+        );
+      }).join("");
+
+      $$('[data-lesson]').forEach((b) => b.onclick = () => startLesson(findLesson(b.dataset.lesson)));
+    }
+
+    function findLesson(id) {
+      for (const u of data) for (const l of u.lessons) if (l.id === id) return l;
+      return null;
+    }
+
+    function renderQuiz() {
+      $("quizGrid").innerHTML = data.map((u) => {
+        const qs = u.lessons.flatMap((l) => l.q).filter((q) => q.t === "mcq");
+        return (
+          `<button class="card" data-quiz="${u.id}">` +
+          `<div class="badge" style="background:${u.bg};color:${u.color}">${u.icon}</div>` +
+          `<h3>${u.title}</h3>` +
+          `<p class="small">${qs.length} questions</p>` +
+          `</button>`
+        );
+      }).join("");
+
+      $$('[data-quiz]').forEach((b) => b.onclick = () => {
+        const u = data.find((x) => x.id === b.dataset.quiz);
+        const qs = u.lessons.flatMap((l) => l.q).filter((q) => q.t === "mcq");
+        startLesson({ id: "quiz-" + u.id, title: u.title + " Quiz", xp: qs.length * 5, q: qs, type: "Quiz" });
+      });
+    }
+
+    function renderBadges() {
+      $("badges").innerHTML = badges.map((b) => {
+        const id = b[0];
+        const name = b[1];
+        const desc = b[2];
+        const earned = state.badges.includes(id);
+        return `<div class="card"><h3>${name}</h3><p class="small">${desc}</p><b>${earned ? "Earned" : "Locked"}</b></div>`;
+      }).join("");
+    }
+
+    function renderProgress() {
+      $("pXp").textContent = state.xp;
+      $("pLessons").textContent = state.done.length;
+      $("pDays").textContent = state.days;
+      $("pAcc").textContent = state.total ? Math.round((state.correct / state.total) * 100) + "%" : "-";
+
+      $("mastery").innerHTML =
+        "<h3>" + state.name + "'s mastery</h3>" +
+        data.map((u) => {
+          const pct = Math.round((u.lessons.filter((l) => state.progress[l.id] === "done").length / u.lessons.length) * 100);
+          return (
+            `<p><b>${u.title}</b> ${pct}%</p>` +
+            `<div class="bar"><div class="fill" style="width:${pct}%;background:${u.color}"></div></div>`
+          );
+        }).join("");
+    }
+
+    function renderDrugs(list = drugs) {
+      $("drugGrid").innerHTML = list.map((d, i) => {
+        return (
+          `<button class="card" data-drug="${i}">` +
+          `<div class="drug-head">` +
+          `<div class="badge" style="background:#eef2ff;color:#3730a3">${d[0].slice(0, 3).toUpperCase()}</div>` +
+          `<div><b>${d[0]}</b><div class="small">${d[1]}</div></div>` +
+          `</div>` +
+          `<p>${d[2]}</p>` +
+          `<p class="small"><b>Uses:</b> ${d[3]}</p>` +
+          `<p class="small"><b>Cautions:</b> ${d[4]}</p>` +
+          `</button>`
+        );
+      }).join("");
+
+      $$('[data-drug]').forEach((b) => b.onclick = () => {
+        state.lookups++;
+        update();
+        toast("Drug card opened");
+      });
+    }
+
+    function switchView(v) {
+      $$(".view").forEach((x) => x.classList.remove("active"));
+      $("view-" + v).classList.add("active");
+      $$(".nav button").forEach((b) => b.classList.toggle("active", b.dataset.view === v));
+
+      if (v === "learn") renderLearn();
+      if (v === "quiz") renderQuiz();
+      if (v === "progress") renderProgress();
+      if (v === "badges") renderBadges();
+      if (v === "drugref") renderDrugs();
+    }
+
+    function startLesson(l) {
+      if (!l || !l.q || l.q.length === 0) return;
+      lesson = l;
+      idx = 0;
+      correct = 0;
+      total = 0;
+      $("lessonModal").classList.add("open");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      selected = null;
+      const q = lesson.q[idx];
+
+      $("feedback").className = "feedback";
+      $("feedback").textContent = "";
+
+      $("checkBtn").textContent = q.t === "flash" ? "Continue" : "Check";
+      $("checkBtn").disabled = q.t === "mcq";
+
+      $("lessonFill").style.width = ((idx / lesson.q.length) * 100) + "%";
+      $("lessonHearts").textContent = "Hearts " + state.hearts;
+
+      if (q.t === "mcq") {
+        $("lessonBody").innerHTML =
+          `<div class="qstem">${q.stem}</div>` +
+          `<div class="answers">` +
+          q.o.map((opt, i) => `<button class="answer" data-a="${i}">${String.fromCharCode(65 + i)}. ${opt}</button>`).join("") +
+          `</div>`;
+
+        $$('[data-a]').forEach((b) => b.onclick = () => {
+          $$(".answer").forEach((x) => x.classList.remove("selected"));
+          b.classList.add("selected");
+          selected = +b.dataset.a;
+          $("checkBtn").disabled = false;
+        });
+      } else if (q.t === "fitb") {
+        $("lessonBody").innerHTML =
+          `<div class="qstem">${q.stem.replace("_____", "<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>")}</div>` +
+          `<p class="small">Hint: ${q.hint || ""}</p>` +
+          `<input class="search" id="fitb" placeholder="Type answer">`;
+
+        $("fitb").oninput = () => { $("checkBtn").disabled = $("fitb").value.trim().length < 1; };
+        $("checkBtn").disabled = true;
+      } else {
+        $("lessonBody").innerHTML =
+          `<div class="qstem">Study this card</div>` +
+          `<div class="flash"><h2>${q.term}</h2><p>${q.cls}</p><p>${q.def}</p></div>`;
+      }
+    }
+
+    function doCheck() {
+      const q = lesson.q[idx];
+
+      if ($("checkBtn").textContent === "Continue") {
+        idx++;
+        if (idx >= lesson.q.length) finishLesson();
+        else renderQuestion();
+        return;
+      }
+
+      let ok = false;
+      total++;
+      state.total++;
+
+      if (q.t === "mcq") {
+        ok = selected === q.a;
+        $$('[data-a]').forEach((b, i) => {
+          if (i === q.a) b.classList.add("good");
+          else if (i === selected) b.classList.add("bad");
+        });
+      } else if (q.t === "fitb") {
+        const v = $("fitb").value.trim().toLowerCase();
+        ok = v === q.a || q.a.toLowerCase().includes(v);
+      }
+
+      if (ok) {
+        correct++;
+        state.correct++;
+        $("feedback").className = "feedback good";
+        $("feedback").textContent = "Correct!";
+        if (q.e) $("feedback").textContent += " " + q.e;
+      } else {
+        state.hearts = Math.max(0, state.hearts - 1);
+        $("feedback").className = "feedback bad";
+        $("feedback").innerHTML = "Not quite. " + (q.e || "Review this concept and try again.");
+      }
+
+      $("checkBtn").textContent = "Continue";
+      $("checkBtn").disabled = false;
+      update();
+    }
+
+    function finishLesson() {
+      const acc = total ? Math.round((correct / total) * 100) : 100;
+      if (acc === 100) state.perfect++;
+
+      if (!lesson.id.startsWith("quiz-") && !state.done.includes(lesson.id)) {
+        state.done.push(lesson.id);
+        state.progress[lesson.id] = "done";
+        unlock();
+      }
+
+      award(lesson.xp);
+      $("lessonModal").classList.remove("open");
+      $("doneTitle").textContent = acc === 100 ? ("Perfect, " + state.name + "!") : "Lesson Complete";
+      $("doneText").textContent = "You earned " + lesson.xp + " XP with " + acc + "% accuracy.";
+      $("doneModal").classList.add("open");
+      renderLearn();
+    }
+
+    function choose(groupSelector, dataAttr, cb) {
+      $$(groupSelector + " .choice").forEach((b) => b.onclick = () => {
+        $$(groupSelector + " .choice").forEach((x) => x.classList.remove("active"));
+        b.classList.add("active");
+        cb(b.dataset[dataAttr]);
+      });
+    }
+
+    function signup(e) {
+      e.preventDefault();
+      state = Object.assign({}, defaults, {
+        name: $("studentInput").value.trim() || "Learner",
+        year: $("yearInput").value,
+        goal: goalPick,
+        avatar: avatarPick,
+      });
+
+      data.forEach((u, ui) => u.lessons.forEach((l, li) => {
+        state.progress[l.id] = ui === 0 && li === 0 ? "active" : "locked";
+      }));
+
+      save();
+      launch();
+    }
+
+    function launch() {
+      load();
+      $("start").classList.add("hidden");
+      $("app").classList.remove("hidden");
+      renderLearn();
+      update();
+    }
+
+    choose("#goalChoices", "goal", (v) => (goalPick = +v));
+    choose("#avatarChoices", "avatar", (v) => (avatarPick = v));
+
+    $("signupForm").onsubmit = signup;
+    $("continueProfile").onclick = launch;
+
+    if (localStorage.getItem(KEY)) {
+      $("continueProfile").classList.remove("hidden");
+      try {
+        const s = JSON.parse(localStorage.getItem(KEY));
+        $("studentInput").value = s.name || "";
+        $("yearInput").value = s.year || "Year 1";
+      } catch (_) {}
+    }
+
+    $$(".nav button").forEach((b) => b.onclick = () => switchView(b.dataset.view));
+
+    $("checkBtn").onclick = doCheck;
+    $("closeLesson").onclick = () => $("lessonModal").classList.remove("open");
+
+    $("continueBtn").onclick = () => {
+      $("doneModal").classList.remove("open");
+      switchView("learn");
+    };
+
+    $("drugSearch").oninput = (e) => {
+      const q = e.target.value.toLowerCase();
+      renderDrugs(drugs.filter((d) => d.join(" ").toLowerCase().includes(q)));
+    };
+
+    $("switchStudent").onclick = () => {
+      if (confirm("Switch student? This clears the saved profile and progress on this browser.")) {
+        localStorage.removeItem(KEY);
+        location.reload();
+      }
+    };
+  </script>
 </body>
 </html>
